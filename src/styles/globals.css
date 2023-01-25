@@ -1,4 +1,8 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Pixel';
+  src: url('../../public/fonts/Pixellari.ttf') format('truetype');
+}
