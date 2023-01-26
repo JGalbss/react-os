@@ -9,7 +9,7 @@ type LoadingPageProps = {
 
 const LoadingPage: FC<LoadingPageProps> = ({ progress }) => {
   return (
-    <div className="flex h-screen items-center justify-center bg-[#4258C6] bg-cover">
+    <div className="relative flex h-screen w-full items-center justify-center bg-[#4258C6]">
       <div className="z-50">
         <h1 className="font-pixel text-3xl text-gray-100">Loading...</h1>
         <LoadingBar percentage={progress * 100} />

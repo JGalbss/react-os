@@ -22,18 +22,22 @@ export default function Home() {
 
   return (
     <>
-      <Transition
-        show={isLoading}
-        enter="transition-opacity duration-75"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition-opacity duration-150"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
-      >
-        <LoadingPage progress={progress} />
-      </Transition>
-      <div>Testing</div>
+      <div className="h-screen w-screen bg-[#f9f1d0] p-[50px]">
+        <div className="h-full overflow-hidden border-[25px] border-[#ded7ba]">
+          <Transition
+            show={isLoading}
+            enter="transition-opacity duration-75"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity duration-150"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <LoadingPage progress={progress} />
+          </Transition>
+          <div className="h-full bg-black/50"></div>
+        </div>
+      </div>
     </>
   );
 }
