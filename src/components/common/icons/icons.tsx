@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { IconProps } from '.';
 
-export const ProfileIcon: FC<IconProps> = ({ width, height }) => {
+export const ProfileIcon: FC<IconProps> = ({ width, height, className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -11,6 +11,7 @@ export const ProfileIcon: FC<IconProps> = ({ width, height }) => {
       stroke="currentColor"
       height={height}
       width={width}
+      className={className}
     >
       <path
         stroke-linecap="round"
@@ -21,7 +22,7 @@ export const ProfileIcon: FC<IconProps> = ({ width, height }) => {
   );
 };
 
-export const MusicIcon: FC<IconProps> = ({ width, height }) => {
+export const MusicIcon: FC<IconProps> = ({ width, height, className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -31,6 +32,7 @@ export const MusicIcon: FC<IconProps> = ({ width, height }) => {
       stroke="currentColor"
       height={height}
       width={width}
+      className={className}
     >
       <path
         stroke-linecap="round"
@@ -41,7 +43,7 @@ export const MusicIcon: FC<IconProps> = ({ width, height }) => {
   );
 };
 
-export const XIcon: FC<IconProps> = ({ width, height }) => {
+export const XIcon: FC<IconProps> = ({ width, height, className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -51,13 +53,14 @@ export const XIcon: FC<IconProps> = ({ width, height }) => {
       stroke="currentColor"
       height={height}
       width={width}
+      className={className}
     >
       <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
     </svg>
   );
 };
 
-export const NightIcon: FC<IconProps> = ({ width, height }) => {
+export const NightIcon: FC<IconProps> = ({ width, height, className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -67,6 +70,7 @@ export const NightIcon: FC<IconProps> = ({ width, height }) => {
       stroke="currentColor"
       height={height}
       width={width}
+      className={className}
     >
       <path
         stroke-linecap="round"
@@ -77,7 +81,7 @@ export const NightIcon: FC<IconProps> = ({ width, height }) => {
   );
 };
 
-export const MailIcon: FC<IconProps> = ({ width, height }) => {
+export const MailIcon: FC<IconProps> = ({ width, height, className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -87,6 +91,7 @@ export const MailIcon: FC<IconProps> = ({ width, height }) => {
       stroke="currentColor"
       height={height}
       width={width}
+      className={className}
     >
       <path
         stroke-linecap="round"
@@ -97,7 +102,7 @@ export const MailIcon: FC<IconProps> = ({ width, height }) => {
   );
 };
 
-export const BookIcon: FC<IconProps> = ({ width, height }) => {
+export const BookIcon: FC<IconProps> = ({ width, height, className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -107,6 +112,7 @@ export const BookIcon: FC<IconProps> = ({ width, height }) => {
       stroke="currentColor"
       height={height}
       width={width}
+      className={className}
     >
       <path
         stroke-linecap="round"
@@ -117,7 +123,7 @@ export const BookIcon: FC<IconProps> = ({ width, height }) => {
   );
 };
 
-export const DownloadIcon: FC<IconProps> = ({ width, height }) => {
+export const DownloadIcon: FC<IconProps> = ({ width, height, className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -127,6 +133,7 @@ export const DownloadIcon: FC<IconProps> = ({ width, height }) => {
       stroke="currentColor"
       height={height}
       width={width}
+      className={className}
     >
       <path
         stroke-linecap="round"
@@ -137,7 +144,7 @@ export const DownloadIcon: FC<IconProps> = ({ width, height }) => {
   );
 };
 
-export const RocketIcon: FC<IconProps> = ({ width, height }) => {
+export const RocketIcon: FC<IconProps> = ({ width, height, className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -147,6 +154,7 @@ export const RocketIcon: FC<IconProps> = ({ width, height }) => {
       stroke="currentColor"
       height={height}
       width={width}
+      className={className}
     >
       <path
         stroke-linecap="round"
@@ -157,7 +165,7 @@ export const RocketIcon: FC<IconProps> = ({ width, height }) => {
   );
 };
 
-export const SunIcon: FC<IconProps> = ({ width, height }) => {
+export const SunIcon: FC<IconProps> = ({ width, height, className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -167,6 +175,7 @@ export const SunIcon: FC<IconProps> = ({ width, height }) => {
       stroke="currentColor"
       height={height}
       width={width}
+      className={className}
     >
       <path
         stroke-linecap="round"
