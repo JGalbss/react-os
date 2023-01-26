@@ -1,6 +1,9 @@
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import BackgroundGif from '@/public/images/background.gif';
 import { Transition } from '@headlessui/react';
 import { useNProgress } from '@tanem/react-nprogress';
+import clsx from 'clsx';
 import LoadingPage from '@/components/pages/loading';
 
 /* Page */
@@ -26,16 +29,24 @@ export default function Home() {
         <div className="h-full overflow-hidden border-[25px] border-[#ded7ba]">
           <Transition
             show={isLoading}
-            enter="transition-opacity duration-75"
+            enter="transition-opacity duration-200"
             enterFrom="opacity-0"
             enterTo="opacity-100"
-            leave="transition-opacity duration-150"
+            leave="transition-opacity duration-2000"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
+            className="h-screen w-full"
           >
             <LoadingPage progress={progress} />
           </Transition>
-          <div className="h-full bg-black/50"></div>
+
+          <div className={clsx('z-10 h-full bg-black/50', isLoading ? 'hidden' : 'block')}>
+            <div className="relative flex h-screen w-full items-center justify-center bg-[#4258C6]">
+              <div className="absolute bottom-0">
+                <Image alt="Background Image" src={BackgroundGif} />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
