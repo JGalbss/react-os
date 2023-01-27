@@ -1,4 +1,5 @@
 import {
+  BatteryIcon,
   BookIcon,
   DownloadIcon,
   MailIcon,
@@ -6,6 +7,7 @@ import {
   NightIcon,
   ProfileIcon,
   RocketIcon,
+  SearchIcon,
   XIcon,
 } from './icons';
 
@@ -19,6 +21,8 @@ export type IconProps = {
 /* Component */
 const Icon = () => {};
 
+Icon.Search = SearchIcon;
+Icon.Battery = BatteryIcon;
 Icon.Profile = ProfileIcon;
 Icon.Music = MusicIcon;
 Icon.X = XIcon;
