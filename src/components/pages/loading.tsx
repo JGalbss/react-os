@@ -1,10 +1,12 @@
 import { FC } from 'react';
 import LoadingBar from '../templates/loading-bar';
 
+/* Props */
 type LoadingPageProps = {
   progress: number;
 };
 
+/* Component */
 const LoadingPage: FC<LoadingPageProps> = ({ progress }) => {
   return (
     <div

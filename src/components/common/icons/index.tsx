@@ -9,12 +9,14 @@ import {
   XIcon,
 } from './icons';
 
+/* Props */
 export type IconProps = {
   height: number;
   width: number;
   className?: string;
 };
 
+/* Component */
 const Icon = () => {};
 
 Icon.Profile = ProfileIcon;
