@@ -5,6 +5,7 @@ import { Transition } from '@headlessui/react';
 import { useNProgress } from '@tanem/react-nprogress';
 import clsx from 'clsx';
 import Dock from '@/components/common/dock';
+import Nav from '@/components/common/nav';
 import LoadingPage from '@/components/pages/loading';
 
 /* Page */
@@ -43,7 +44,8 @@ export default function Home() {
 
           <div className={clsx('z-10 h-full bg-black/50', isLoading ? 'hidden' : 'block')}>
             <div className="relative flex h-screen w-full items-center justify-center bg-[#4258C6]">
-              <Dock />
+              <Nav />
+              <Dock classNames="absolute bottom-[150px]" />
 
               <div className="absolute bottom-0 z-10">
                 <Image alt="Background Image" src={BackgroundGif} />

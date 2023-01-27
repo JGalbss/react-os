@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import clsx from 'clsx';
 import Icon from '@/components/common/icons';
 import type { AppProps } from './app';
@@ -29,13 +29,18 @@ const APPS: AppProps[] = [
   },
 ];
 
+/* Props */
+type DockProps = {
+  classNames?: string;
+};
+
 /* Component */
-const Dock = () => {
+const Dock: FC<DockProps> = ({ classNames }) => {
   /* States */
   const [appHovered, setAppHovered] = useState<Apps>(undefined);
 
   return (
-    <div className="absolute bottom-[150px] z-50 w-full p-[25px]">
+    <div className={clsx('z-50 w-full p-[25px]', classNames)}>
       <div className="flex w-full items-center justify-center">
         <div className="flex w-fit items-center justify-center space-x-3 rounded-xl p-3 backdrop-blur-md">
           {APPS.map((app, index) => {
