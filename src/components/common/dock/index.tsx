@@ -40,7 +40,7 @@ const Dock: FC<DockProps> = ({ classNames }) => {
   const [appHovered, setAppHovered] = useState<Apps>(undefined);
 
   return (
-    <div className={clsx('z-50 w-full p-[25px]', classNames)}>
+    <div className={clsx('w-full p-[25px]', classNames)}>
       <div className="flex w-full items-center justify-center">
         <div className="flex w-fit items-center justify-center space-x-3 rounded-xl p-3 backdrop-blur-md">
           {APPS.map((app, index) => {

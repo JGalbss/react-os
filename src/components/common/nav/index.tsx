@@ -1,6 +1,15 @@
-const Nav = () => {
+import { FC } from 'react';
+import clsx from 'clsx';
+
+/* Types */
+type NavProps = {
+  classNames?: string;
+};
+
+/* Component */
+const Nav: FC<NavProps> = ({ classNames }) => {
   return (
-    <div>
+    <div className={clsx(classNames)}>
       <div>josh</div>
     </div>
   );
