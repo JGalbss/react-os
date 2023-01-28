@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { atom, useRecoilState } from 'recoil';
+import App from '@/components/common/dock/app';
 import type { AppComponentProps } from '.';
-import App from '../common/dock/app';
 import Icon from '../common/icons';
 import Window from '../common/window';
 
@@ -31,6 +31,7 @@ const ProfileApp: FC<AppComponentProps> = () => {
       colorClassnames={colorClassnames}
       name={name}
       onClick={() => setIsClosed(false)}
+      isClosed={isClosed}
     />
   );
 };
@@ -52,7 +53,7 @@ const ProfileWindow: FC<AppComponentProps> = ({ classNames }) => {
 const Profile = {
   app: ProfileApp,
   window: ProfileWindow,
-  name: name,
+  name: 'Profile',
 };
 
 export default Profile;

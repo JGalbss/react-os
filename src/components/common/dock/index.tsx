@@ -4,7 +4,7 @@ import { App } from '@/components/apps';
 import Tooltip from '@/components/templates/tooltip';
 
 /* Types */
-export type Apps = 'Profile' | 'Music' | 'Mint' | undefined;
+export type AppNames = 'Profile' | 'Music' | 'Mint' | undefined;
 
 /* Props */
 type DockProps = {
@@ -27,7 +27,7 @@ const Dock: FC<DockProps> = ({ classNames, apps }) => {
             return (
               <Tooltip
                 className={clsx(
-                  'z-[100] mb-10 rounded-xl bg-gray-800/50 px-3 py-2 backdrop-blur-sm',
+                  'z-[100] mb-7 rounded-xl bg-gray-800/50 px-3 py-2 backdrop-blur-sm',
                 )}
                 content={<p className="text-gray-100">{app.name}</p>}
               >
