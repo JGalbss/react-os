@@ -11,8 +11,11 @@ type WindowProps = {
 
 /* Component */
 const Window: FC<WindowProps> = ({ classNames }) => {
+  /* States */
   const [windowHeight, setWindowHeight] = useState(0);
   const [windowWidth, setWindowWidth] = useState(0);
+  const [isClosed, setIsClosed] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     const updateWindowSize = () => {
@@ -29,6 +32,7 @@ const Window: FC<WindowProps> = ({ classNames }) => {
     };
   }, []);
 
+  /* Constants */
   const WINDOW_ACTIONS = [
     {
       name: 'close',
@@ -70,9 +74,6 @@ const Window: FC<WindowProps> = ({ classNames }) => {
       ),
     },
   ];
-
-  const [isClosed, setIsClosed] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <Rnd
