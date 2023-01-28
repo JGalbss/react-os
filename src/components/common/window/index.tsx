@@ -16,8 +16,8 @@ const Window: FC<WindowProps> = ({ classNames }) => {
 
   useEffect(() => {
     const updateWindowSize = () => {
-      setWindowHeight(window.innerHeight);
-      setWindowWidth(window.innerWidth);
+      setWindowHeight(window.innerHeight - COMPUTER_FRAME_SIZE * 2);
+      setWindowWidth(window.innerWidth - COMPUTER_FRAME_SIZE * 2);
       console.log(windowWidth, windowHeight);
     };
 
@@ -92,8 +92,8 @@ const Window: FC<WindowProps> = ({ classNames }) => {
       size={
         isExpanded
           ? {
-              width: windowWidth - COMPUTER_FRAME_SIZE * 2,
-              height: windowHeight - COMPUTER_FRAME_SIZE * 2,
+              width: windowWidth,
+              height: windowHeight,
             }
           : undefined
       }
