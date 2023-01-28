@@ -2,7 +2,9 @@ import {
   BatteryIcon,
   BookIcon,
   DownloadIcon,
+  ExpandIcon,
   MailIcon,
+  MinusIcon,
   MusicIcon,
   NightIcon,
   ProfileIcon,
@@ -21,6 +23,7 @@ export type IconProps = {
 /* Component */
 const Icon = () => {};
 
+Icon.Expand = ExpandIcon;
 Icon.Search = SearchIcon;
 Icon.Battery = BatteryIcon;
 Icon.Profile = ProfileIcon;
@@ -31,5 +34,6 @@ Icon.Mail = MailIcon;
 Icon.Book = BookIcon;
 Icon.Download = DownloadIcon;
 Icon.Rocket = RocketIcon;
+Icon.Minus = MinusIcon;
 
 export default Icon;

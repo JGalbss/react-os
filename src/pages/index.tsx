@@ -6,6 +6,7 @@ import { useNProgress } from '@tanem/react-nprogress';
 import clsx from 'clsx';
 import Dock from '@/components/common/dock';
 import Nav from '@/components/common/nav';
+import Window from '@/components/common/window';
 import LoadingPage from '@/components/pages/loading';
 
 /* Page */
@@ -46,6 +47,7 @@ export default function Home() {
             <div className="relative flex h-screen w-full items-center justify-center bg-[#4258C6]">
               <Nav classNames="z-50 absolute top-0" />
               <Dock classNames="absolute bottom-[150px] z-50" />
+              <Window classNames="z-50" />
 
               <div className="absolute bottom-0 z-10">
                 <Image alt="Background Image" src={BackgroundGif} />
