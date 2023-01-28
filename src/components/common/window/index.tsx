@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { Rnd } from 'react-rnd';
+import { COMPUTER_FRAME_SIZE } from 'src/pages';
 import Icon from '../icons';
 
 /* Props */
@@ -88,7 +89,14 @@ const Window: FC<WindowProps> = ({ classNames }) => {
         height: 500,
       }}
       position={isExpanded ? { x: 0, y: 0 } : undefined}
-      size={isExpanded ? { width: windowWidth, height: windowHeight } : undefined}
+      size={
+        isExpanded
+          ? {
+              width: windowWidth - COMPUTER_FRAME_SIZE * 2,
+              height: windowHeight - COMPUTER_FRAME_SIZE * 2,
+            }
+          : undefined
+      }
       disableDragging={isExpanded}
       disableResizing={isExpanded}
     >

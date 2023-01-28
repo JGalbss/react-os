@@ -9,6 +9,10 @@ import Nav from '@/components/common/nav';
 import Window from '@/components/common/window';
 import LoadingPage from '@/components/pages/loading';
 
+/* Constants */
+// size of border around computer
+export const COMPUTER_FRAME_SIZE = 75;
+
 /* Page */
 export default function Home() {
   /* States */
