@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import clsx from 'clsx';
 import { Rnd } from 'react-rnd';
 import Icon from '../icons';
 
@@ -47,7 +48,7 @@ const Window: FC<WindowProps> = ({ classNames }) => {
 
   return (
     <Rnd
-      className={classNames}
+      className={clsx(classNames, 'min-h-[200px] min-w-[200px]')}
       default={{
         x: 0,
         y: 0,
