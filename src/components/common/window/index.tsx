@@ -7,15 +7,23 @@ import Icon from '../icons';
 /* Props */
 type WindowProps = {
   classNames?: string;
+  isClosed: boolean;
+  isExpanded: boolean;
+  setIsClosed: (value: boolean) => void;
+  setIsExpanded: (value: boolean) => void;
 };
 
 /* Component */
-const Window: FC<WindowProps> = ({ classNames }) => {
+const Window: FC<WindowProps> = ({
+  classNames,
+  isClosed,
+  isExpanded,
+  setIsClosed,
+  setIsExpanded,
+}) => {
   /* States */
   const [windowHeight, setWindowHeight] = useState(0);
   const [windowWidth, setWindowWidth] = useState(0);
-  const [isClosed, setIsClosed] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     const updateWindowSize = () => {
@@ -80,7 +88,7 @@ const Window: FC<WindowProps> = ({ classNames }) => {
       className={clsx(
         classNames,
         'min-h-[200px] min-w-[200px]',
-        isClosed && 'invisible',
+        isClosed ? 'invisible' : 'visible',
         isExpanded && 'z-[100]',
       )}
       default={{

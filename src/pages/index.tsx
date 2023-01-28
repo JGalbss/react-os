@@ -4,9 +4,9 @@ import BackgroundGif from '@/public/images/background.gif';
 import { Transition } from '@headlessui/react';
 import { useNProgress } from '@tanem/react-nprogress';
 import clsx from 'clsx';
+import APPS from '@/components/apps';
 import Dock from '@/components/common/dock';
 import Nav from '@/components/common/nav';
-import Window from '@/components/common/window';
 import LoadingPage from '@/components/pages/loading';
 
 /* Constants */
@@ -15,9 +15,6 @@ export const COMPUTER_FRAME_SIZE = 75;
 
 /* Page */
 export default function Home() {
-  /* States */
-  const [isLoading, setIsLoading] = useState(true);
-
   const { progress } = useNProgress({
     isAnimating: true,
 
@@ -29,6 +26,10 @@ export default function Home() {
       setIsLoading(false);
     }, 3000);
   }, []);
+
+  /* States */
+  const [isLoading, setIsLoading] = useState(true);
+  const [windowSelected, setWindowSelected] = useState(APPS[0].name);
 
   return (
     <>
@@ -50,8 +51,10 @@ export default function Home() {
           <div className={clsx('z-10 h-full bg-black/50', isLoading ? 'hidden' : 'block')}>
             <div className="relative flex h-screen w-full items-center justify-center bg-[#4258C6]">
               <Nav classNames="z-50 absolute top-0" />
-              <Dock classNames="absolute bottom-[150px] z-50" />
-              <Window classNames="z-50" />
+              <Dock apps={APPS} classNames="absolute bottom-[150px] z-50" />
+              {APPS.map((app) => {
+                return <div className="z-[100]">{<app.window />}</div>;
+              })}
 
               <div className="absolute bottom-0 z-10">
                 <Image alt="Background Image" src={BackgroundGif} />
