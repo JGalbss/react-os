@@ -13,8 +13,10 @@ const Window: FC<WindowProps> = ({ classNames }) => {
     {
       name: 'close',
       icon: (
-        <div className="flex items-center justify-center rounded-full bg-red-500 p-2">
-          <Icon.X className={'hidden fill-red-800 hover:block'} height={9} width={9} />
+        <div className="flex cursor-pointer items-center justify-center rounded-full bg-red-500 p-1">
+          <div className="h-full w-full opacity-0 hover:opacity-100">
+            <Icon.X className={'fill-red-800'} height={10} width={10} />
+          </div>
         </div>
       ),
       onclick: () => console.log('close'),
@@ -22,9 +24,9 @@ const Window: FC<WindowProps> = ({ classNames }) => {
     {
       name: 'minimize',
       icon: (
-        <div className="flex items-center justify-center rounded-full bg-yellow-500 p-2">
-          <div className="hidden h-full w-full hover:block">
-            <Icon.Minus className={'hidden fill-yellow-800 hover:block'} height={9} width={9} />
+        <div className="flex cursor-pointer items-center justify-center rounded-full bg-yellow-500 p-1">
+          <div className="h-full w-full opacity-0 hover:opacity-100">
+            <Icon.Minus className={'text-yellow-800'} height={10} width={10} />
           </div>
         </div>
       ),
@@ -33,8 +35,10 @@ const Window: FC<WindowProps> = ({ classNames }) => {
     {
       name: 'expand',
       icon: (
-        <div className="flex items-center justify-center rounded-full bg-green-500 p-2">
-          <Icon.Expand className={'hidden fill-green-800 hover:block'} height={9} width={9} />
+        <div className="flex cursor-pointer items-center justify-center rounded-full bg-green-500 p-1">
+          <div className="h-full w-full opacity-0 hover:opacity-100">
+            <Icon.Expand className={'text-green-800'} height={10} width={10} />
+          </div>
         </div>
       ),
       onclick: () => console.log('close'),
