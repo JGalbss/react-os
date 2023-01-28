@@ -136,7 +136,7 @@ const Window: FC<WindowProps> = ({
             </div>
           </div>
         </div>
-        <div className="scrollbar-hide flex h-full w-full overflow-y-scroll">{children}</div>
+        <div className="scrollbar-hide flex h-full w-full overflow-y-scroll p-3">{children}</div>
       </div>
     </Rnd>
   );
