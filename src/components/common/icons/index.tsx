@@ -1,8 +1,11 @@
 import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
   BatteryIcon,
   BookIcon,
   DownloadIcon,
   ExpandIcon,
+  LockIcon,
   MailIcon,
   MinusIcon,
   MusicIcon,
@@ -23,6 +26,9 @@ export type IconProps = {
 /* Component */
 const Icon = () => {};
 
+Icon.ArrowRight = ArrowRightIcon;
+Icon.ArrowLeft = ArrowLeftIcon;
+Icon.Lock = LockIcon;
 Icon.Expand = ExpandIcon;
 Icon.Search = SearchIcon;
 Icon.Battery = BatteryIcon;

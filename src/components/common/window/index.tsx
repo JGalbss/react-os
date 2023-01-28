@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, ReactNode, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { Rnd } from 'react-rnd';
 import { COMPUTER_FRAME_SIZE } from 'src/pages';
@@ -11,6 +11,7 @@ type WindowProps = {
   isExpanded: boolean;
   setIsClosed: (value: boolean) => void;
   setIsExpanded: (value: boolean) => void;
+  children?: ReactNode;
 };
 
 /* Component */
@@ -20,6 +21,7 @@ const Window: FC<WindowProps> = ({
   isExpanded,
   setIsClosed,
   setIsExpanded,
+  children,
 }) => {
   /* States */
   const [windowHeight, setWindowHeight] = useState(0);
@@ -47,7 +49,7 @@ const Window: FC<WindowProps> = ({
       icon: (
         <div
           onClick={() => setIsClosed(true)}
-          className="flex cursor-pointer items-center justify-center rounded-full bg-red-500 p-1"
+          className="flex cursor-pointer items-center justify-center rounded-full bg-red-500 p-0.5"
         >
           <div className="h-full w-full opacity-0 hover:opacity-100">
             <Icon.X className={'fill-red-800'} height={10} width={10} />
@@ -60,7 +62,7 @@ const Window: FC<WindowProps> = ({
       icon: (
         <div
           onClick={() => setIsExpanded(false)}
-          className="flex cursor-pointer items-center justify-center rounded-full bg-yellow-500 p-1"
+          className="flex cursor-pointer items-center justify-center rounded-full bg-yellow-500 p-0.5"
         >
           <div className="h-full w-full opacity-0 hover:opacity-100">
             <Icon.Minus className={'text-yellow-800'} height={10} width={10} />
@@ -73,7 +75,7 @@ const Window: FC<WindowProps> = ({
       icon: (
         <div
           onClick={() => setIsExpanded(true)}
-          className="flex cursor-pointer items-center justify-center rounded-full bg-green-500 p-1"
+          className="flex cursor-pointer items-center justify-center rounded-full bg-green-500 p-0.5"
         >
           <div className="h-full w-full opacity-0 hover:opacity-100">
             <Icon.Expand className={'text-green-800'} height={10} width={10} />
@@ -115,6 +117,26 @@ const Window: FC<WindowProps> = ({
             return action.icon;
           })}
         </div>
+        <div className="absolute left-[90px] top-[8px] z-10 h-[38px] w-fit rounded-lg bg-[#cbdcf7] py-1.5 px-3">
+          <p className="text-sm">My Profile</p>
+        </div>
+        <div className="z-20 flex h-[40px] w-full bg-[#cbdcf7]">
+          <div
+            className="flex w-full items-center space-x-2 
+        px-3"
+          >
+            <div className="rounded-full p-1 hover:bg-black/10">
+              <Icon.ArrowLeft className={'fill-gray-800 stroke-2'} height={15} width={15} />
+            </div>
+            <div className="rounded-full p-1 hover:bg-black/10">
+              <Icon.ArrowRight className={'fill-gray-800 stroke-2'} height={15} width={15} />
+            </div>
+            <div className="flex w-full">
+              <input placeholder="Josh Galbreath - Portfolio" className="w-full rounded-lg px-2" />
+            </div>
+          </div>
+        </div>
+        <div className="scrollbar-hide flex h-full w-full overflow-y-scroll">{children}</div>
       </div>
     </Rnd>
   );
