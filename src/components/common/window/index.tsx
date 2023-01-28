@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from 'react';
-import { Transition } from '@headlessui/react';
 import clsx from 'clsx';
 import { Rnd } from 'react-rnd';
 import Icon from '../icons';
@@ -75,39 +74,27 @@ const Window: FC<WindowProps> = ({ classNames }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <Transition
-      appear={true}
-      show={!minimized}
-      hidden={minimized}
-      enter="transition-opacity duration-2000"
-      enterFrom="opacity-0"
-      enterTo="opacity-100"
-      leave="transition-opacity duration-2000"
-      leaveFrom="opacity-100"
-      leaveTo="opacity-0"
+    <Rnd
+      className={clsx(classNames, 'min-h-[200px] min-w-[200px]')}
+      default={{
+        x: 0,
+        y: 0,
+        width: 500,
+        height: 500,
+      }}
+      position={isExpanded ? { x: 0, y: 0 } : undefined}
+      size={isExpanded ? { width: windowWidth, height: windowHeight } : undefined}
+      disableDragging={isExpanded}
+      disableResizing={isExpanded}
     >
-      <Rnd
-        className={clsx(classNames, 'min-h-[200px] min-w-[200px]')}
-        default={{
-          x: 0,
-          y: 0,
-          width: 500,
-          height: 500,
-        }}
-        position={isExpanded ? { x: 0, y: 0 } : undefined}
-        size={{ width: isExpanded ? windowWidth : 500, height: isExpanded ? windowHeight : 500 }}
-        disableDragging={isExpanded}
-        disableResizing={isExpanded}
-      >
-        <div className="relative h-full w-full overflow-hidden rounded-xl bg-gray-200">
-          <div className="flex h-[40px] w-full items-center justify-start space-x-3 bg-[#83adea] p-3">
-            {WINDOW_ACTIONS.map((action, index) => {
-              return action.icon;
-            })}
-          </div>
+      <div className="relative h-full w-full overflow-hidden rounded-xl bg-gray-200">
+        <div className="flex h-[40px] w-full items-center justify-start space-x-3 bg-[#83adea] p-3">
+          {WINDOW_ACTIONS.map((action, index) => {
+            return action.icon;
+          })}
         </div>
-      </Rnd>
-    </Transition>
+      </div>
+    </Rnd>
   );
 };
 
