@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import clsx from 'clsx';
 import Icon from '@/components/common/icons';
+import Tooltip from '@/components/templates/tooltip';
 import type { AppProps } from './app';
 import App from './app';
 
@@ -47,15 +48,22 @@ const Dock: FC<DockProps> = ({ classNames }) => {
             const isHovered = appHovered === app.name;
             const isUndefined = appHovered === undefined;
             return (
-              <div
-                onMouseEnter={() => setAppHovered(app.name)}
-                onMouseLeave={() => setAppHovered(undefined)}
+              <Tooltip
                 className={clsx(
-                  !isHovered && !isUndefined && 'blur-[1px] transition duration-300 ease-in-out',
+                  'z-[100] mb-10 rounded-xl bg-gray-800/50 px-3 py-2 backdrop-blur-sm',
                 )}
+                content={<p className="text-gray-100">{app.name}</p>}
               >
-                <App key={index} {...app} />
-              </div>
+                <div
+                  onMouseEnter={() => setAppHovered(app.name)}
+                  onMouseLeave={() => setAppHovered(undefined)}
+                  className={clsx(
+                    !isHovered && !isUndefined && 'blur-[1px] transition duration-300 ease-in-out',
+                  )}
+                >
+                  <App key={index} {...app} />
+                </div>
+              </Tooltip>
             );
           })}
         </div>
