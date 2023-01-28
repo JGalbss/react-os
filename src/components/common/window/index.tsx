@@ -33,7 +33,7 @@ const Window: FC<WindowProps> = ({ classNames }) => {
       name: 'close',
       icon: (
         <div
-          onClick={() => setMinimized(true)}
+          onClick={() => setIsClosed(true)}
           className="flex cursor-pointer items-center justify-center rounded-full bg-red-500 p-1"
         >
           <div className="h-full w-full opacity-0 hover:opacity-100">
@@ -70,12 +70,17 @@ const Window: FC<WindowProps> = ({ classNames }) => {
     },
   ];
 
-  const [minimized, setMinimized] = useState(false);
+  const [isClosed, setIsClosed] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <Rnd
-      className={clsx(classNames, 'min-h-[200px] min-w-[200px]')}
+      className={clsx(
+        classNames,
+        'min-h-[200px] min-w-[200px]',
+        isClosed && 'invisible',
+        isExpanded && 'z-[100]',
+      )}
       default={{
         x: 0,
         y: 0,
