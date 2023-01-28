@@ -11,6 +11,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.7",
     "@next/font": "13.1.4",
+    "@radix-ui/react-tooltip": "^1.0.3",
     "@react-spring/web": "^9.6.1",
     "@tanem/react-nprogress": "^5.0.25",
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
