@@ -26,7 +26,7 @@ const App: FC<AppProps> = ({ name, onClick, icon, colorClassnames, isClosed }) =
       >
         {icon}
       </div>
-      {!isClosed && <div className="mt-2 flex h-2 w-2 rounded-full bg-white" />}
+      <div className={clsx('mt-2 flex h-2 w-2 rounded-full bg-white', isClosed && 'invisible')} />
     </div>
   );
 };
