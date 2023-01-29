@@ -36,7 +36,7 @@ export default function Home() {
       <div className="h-screen w-screen bg-[#f9f1d0] p-[50px]">
         <div className="h-full overflow-hidden border-[25px] border-[#ded7ba]">
           <Transition
-            show={isLoading}
+            show={false}
             enter="transition-opacity duration-200"
             enterFrom="opacity-0"
             enterTo="opacity-100"
@@ -48,7 +48,7 @@ export default function Home() {
             <LoadingPage progress={progress} />
           </Transition>
 
-          <div className={clsx('z-10 h-full bg-black/50', isLoading ? 'hidden' : 'block')}>
+          <div className={clsx('z-10 h-full bg-black/50', false ? 'hidden' : 'block')}>
             <div className="relative flex h-screen w-full items-center justify-center bg-[#4258C6]">
               <Nav classNames="z-50 absolute top-0" />
               <Dock apps={APPS} classNames="absolute bottom-[150px] z-50" />
