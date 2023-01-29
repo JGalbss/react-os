@@ -2,44 +2,44 @@ import { FC } from 'react';
 import { atom, useRecoilState } from 'recoil';
 import App from '@/components/common/dock/app';
 import type { AppComponentProps } from '.';
+import { AppNames } from '../common/dock';
 import Icon from '../common/icons';
 import Window from '../common/window';
-import ProfilePage from '../windows/profile';
 
 /* Constants */
 const colorClassnames = 'bg-red-500 hover:bg-red-600';
-const name = 'Profile';
+const name = 'Chrome';
 
 /* States */
-const isProfileClosed = atom({
-  key: 'profileClosedState', // unique ID (with respect to other atoms/selectors)
+const isChromeClosed = atom({
+  key: 'chromeClosedState', // unique ID (with respect to other atoms/selectors)
   default: false, // default value (aka initial value)
 });
 
-const isProfileExpanded = atom({
-  key: 'profileExpandedState', // unique ID (with respect to other atoms/selectors)
+const isChromeExpanded = atom({
+  key: 'chromeExpandedState', // unique ID (with respect to other atoms/selectors)
   default: false, // default value (aka initial value)
 });
 
 /* Component */
 
-const ProfileApp: FC<AppComponentProps> = () => {
-  const [isClosed, setIsClosed] = useRecoilState(isProfileClosed);
+const ChromeApp: FC<AppComponentProps> = () => {
+  const [isClosed, setIsClosed] = useRecoilState(isChromeClosed);
 
   return (
     <App
       icon={<Icon.Profile width={40} height={40} />}
       colorClassnames={colorClassnames}
-      name={name}
+      name={name as AppNames}
       onClick={() => setIsClosed(false)}
       isClosed={isClosed}
     />
   );
 };
 
-const ProfileWindow: FC<AppComponentProps> = ({ classNames }) => {
-  const [isClosed, setIsClosed] = useRecoilState(isProfileClosed);
-  const [isExpanded, setIsExpanded] = useRecoilState(isProfileExpanded);
+const ChromeWindow: FC<AppComponentProps> = ({ classNames }) => {
+  const [isClosed, setIsClosed] = useRecoilState(isChromeClosed);
+  const [isExpanded, setIsExpanded] = useRecoilState(isChromeExpanded);
   return (
     <Window
       isClosed={isClosed}
@@ -49,15 +49,20 @@ const ProfileWindow: FC<AppComponentProps> = ({ classNames }) => {
       classNames={classNames}
       name={name}
     >
-      <ProfilePage />
+      <iframe
+        title="Chrome Browser"
+        src="https://www.google.com/webhp?igu=1"
+        width="100%"
+        height="100%"
+      />
     </Window>
   );
 };
 
-const Profile = {
-  app: ProfileApp,
-  window: ProfileWindow,
-  name: 'Profile',
+const Chrome = {
+  app: ChromeApp,
+  window: ChromeWindow,
+  name: 'Chrome',
 };
 
-export default Profile;
+export default Chrome;

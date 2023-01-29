@@ -3,6 +3,7 @@ import {
   ArrowRightIcon,
   BatteryIcon,
   BookIcon,
+  ChromeIcon,
   DownloadIcon,
   ExpandIcon,
   LockIcon,
@@ -28,6 +29,7 @@ const Icon = () => {};
 
 Icon.ArrowRight = ArrowRightIcon;
 Icon.ArrowLeft = ArrowLeftIcon;
+Icon.Chrome = ChromeIcon;
 Icon.Lock = LockIcon;
 Icon.Expand = ExpandIcon;
 Icon.Search = SearchIcon;

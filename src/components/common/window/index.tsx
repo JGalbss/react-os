@@ -12,6 +12,7 @@ type WindowProps = {
   setIsClosed: (value: boolean) => void;
   setIsExpanded: (value: boolean) => void;
   children?: ReactNode;
+  name?: string;
 };
 
 /* Component */
@@ -22,6 +23,7 @@ const Window: FC<WindowProps> = ({
   setIsClosed,
   setIsExpanded,
   children,
+  name,
 }) => {
   /* States */
   const [windowHeight, setWindowHeight] = useState(0);
@@ -118,7 +120,7 @@ const Window: FC<WindowProps> = ({
           })}
         </div>
         <div className="absolute left-[90px] top-[8px] z-10 h-[38px] w-fit rounded-lg bg-[#cbdcf7] py-1.5 px-3">
-          <p className="text-sm">My Profile</p>
+          <p className="text-sm">{name}</p>
         </div>
         <div className="z-20 flex h-[40px] w-full bg-[#cbdcf7]">
           <div
