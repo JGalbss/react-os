@@ -136,7 +136,12 @@ const Window: FC<WindowProps> = ({
             </div>
           </div>
         </div>
-        <div className="scrollbar-hide flex h-full w-full overflow-y-scroll p-3">{children}</div>
+        <div
+          style={{ height: 'calc(100% - 76px)' }}
+          className="scrollbar-hide flex w-full overflow-y-scroll p-3"
+        >
+          {children}
+        </div>
       </div>
     </Rnd>
   );

@@ -57,6 +57,8 @@ const ProfilePage = () => {
         <h2 className="w-full text-2xl font-medium">Experience</h2>
         <Timeline items={EXPERIENCE} />
       </section>
+      {/* @TODO fix this - footer workaround to prevent border collision */}
+      <div className="h-1" />
     </div>
   );
 };
