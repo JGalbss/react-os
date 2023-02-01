@@ -4,6 +4,7 @@ import BackgroundGif from '@/public/images/background.gif';
 import { Transition } from '@headlessui/react';
 import { useNProgress } from '@tanem/react-nprogress';
 import clsx from 'clsx';
+import { atom, useRecoilState } from 'recoil';
 import APPS from '@/components/apps';
 import Dock from '@/components/common/dock';
 import Nav from '@/components/common/nav';
@@ -12,6 +13,12 @@ import LoadingPage from '@/components/pages/loading';
 /* Constants */
 // size of border around computer
 export const COMPUTER_FRAME_SIZE = 75;
+
+/* Page Atoms */
+export const windowExpandedAtom = atom({
+  key: 'windowExpanded', // unique ID (with respect to other atoms/selectors)
+  default: '', // default value (aka initial value)
+});
 
 /* Page */
 export default function Home() {
@@ -30,6 +37,7 @@ export default function Home() {
   /* States */
   const [isLoading, setIsLoading] = useState(true);
   const [windowSelected, setWindowSelected] = useState<string | undefined>(APPS[0].name);
+  const [windowExpanded, setWindowExpanded] = useRecoilState(windowExpandedAtom);
 
   return (
     <>
@@ -50,7 +58,7 @@ export default function Home() {
 
           <div className={clsx('z-10 h-full bg-black/50', false ? 'hidden' : 'block')}>
             <div className="relative flex h-screen w-full flex-col items-start justify-center bg-[#4258C6]">
-              <Nav classNames="z-50" />
+              <Nav classNames={clsx(windowExpanded != '' ? 'z-10' : 'z-50')} />
               <Dock
                 windowSelected={windowSelected as string}
                 setWindowSelected={setWindowSelected}

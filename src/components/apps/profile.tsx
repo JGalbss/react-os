@@ -16,13 +16,7 @@ const isProfileClosed = atom({
   default: false, // default value (aka initial value)
 });
 
-const isProfileExpanded = atom({
-  key: 'profileExpandedState', // unique ID (with respect to other atoms/selectors)
-  default: false, // default value (aka initial value)
-});
-
 /* Component */
-
 const ProfileApp: FC<AppComponentProps> = () => {
   const [isClosed, setIsClosed] = useRecoilState(isProfileClosed);
 
@@ -43,13 +37,11 @@ const ProfileWindow: FC<AppComponentProps> = ({
   setWindowSelected,
 }) => {
   const [isClosed, setIsClosed] = useRecoilState(isProfileClosed);
-  const [isExpanded, setIsExpanded] = useRecoilState(isProfileExpanded);
+
   return (
     <Window
       isClosed={isClosed}
       setIsClosed={setIsClosed}
-      setIsExpanded={setIsExpanded}
-      isExpanded={isExpanded}
       classNames={classNames}
       name={name}
       windowSelected={windowSelected}

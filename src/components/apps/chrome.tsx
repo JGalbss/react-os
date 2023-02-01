@@ -16,11 +16,6 @@ const isChromeClosed = atom({
   default: false, // default value (aka initial value)
 });
 
-const isChromeExpanded = atom({
-  key: 'chromeExpandedState', // unique ID (with respect to other atoms/selectors)
-  default: false, // default value (aka initial value)
-});
-
 /* Component */
 
 const ChromeApp: FC<AppComponentProps> = () => {
@@ -39,15 +34,13 @@ const ChromeApp: FC<AppComponentProps> = () => {
 
 const ChromeWindow: FC<AppComponentProps> = ({ classNames, windowSelected, setWindowSelected }) => {
   const [isClosed, setIsClosed] = useRecoilState(isChromeClosed);
-  const [isExpanded, setIsExpanded] = useRecoilState(isChromeExpanded);
+
   return (
     <Window
       isClosed={isClosed}
       setWindowSelected={setWindowSelected}
       windowSelected={windowSelected}
       setIsClosed={setIsClosed}
-      setIsExpanded={setIsExpanded}
-      isExpanded={isExpanded}
       classNames={classNames}
       name={name}
     >
