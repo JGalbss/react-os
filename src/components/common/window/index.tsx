@@ -110,6 +110,7 @@ const Window: FC<WindowProps> = ({
             }
           : undefined
       }
+      bounds="parent"
       disableDragging={isExpanded}
       disableResizing={isExpanded}
     >

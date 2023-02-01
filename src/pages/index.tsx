@@ -49,13 +49,14 @@ export default function Home() {
           </Transition>
 
           <div className={clsx('z-10 h-full bg-black/50', false ? 'hidden' : 'block')}>
-            <div className="relative flex h-screen w-full items-center justify-center bg-[#4258C6]">
-              <Nav classNames="z-50 absolute top-0" />
+            <div className="relative flex h-screen w-full flex-col items-start justify-center bg-[#4258C6]">
+              <Nav classNames="z-50 " />
               <Dock apps={APPS} classNames="absolute bottom-[150px] z-50" />
-              {APPS.map((app) => {
-                return <app.window classNames={clsx('z-50')} />;
-              })}
-
+              <div className="z-[100] flex h-full w-full">
+                {APPS.map((app) => {
+                  return <app.window classNames={clsx('z-50')} />;
+                })}
+              </div>
               <div className="absolute bottom-0 z-10">
                 <Image alt="Background Image" src={BackgroundGif} />
               </div>
