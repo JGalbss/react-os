@@ -32,6 +32,7 @@ const Window: FC<WindowProps> = ({
   const [windowWidth, setWindowWidth] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [windowExpanded, setWindowExpanded] = useRecoilState(windowExpandedAtom);
+  const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
     const updateWindowSize = () => {
@@ -95,6 +96,11 @@ const Window: FC<WindowProps> = ({
     },
   ];
 
+  const handleDrag = () => {
+    setWindowSelected(name);
+    setIsDragging(true);
+  };
+
   if (!isLoaded) {
     return <div />;
   }
@@ -105,7 +111,7 @@ const Window: FC<WindowProps> = ({
         classNames,
         'min-h-[200px] min-w-[200px]',
         isClosed ? 'invisible' : 'visible',
-        isExpanded && 'z-[100]',
+        isExpanded && 'z-[100] transition-all duration-300 ease-in-out',
         isWindowSelected ? 'z-[100]' : 'z-[80]',
       )}
       default={{
@@ -114,6 +120,8 @@ const Window: FC<WindowProps> = ({
         width: 500,
         height: 500,
       }}
+      onDrag={() => handleDrag()}
+      onDragStop={() => setIsDragging(false)}
       position={isExpanded ? { x: 0, y: 0 } : undefined}
       size={
         isExpanded

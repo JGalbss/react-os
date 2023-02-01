@@ -63,7 +63,10 @@ export default function Home() {
                 windowSelected={windowSelected as string}
                 setWindowSelected={setWindowSelected}
                 apps={APPS}
-                classNames={clsx('absolute bottom-[150px]', windowExpanded != '' ? 'z-10' : 'z-50')}
+                classNames={clsx(
+                  'absolute bottom-[150px]',
+                  windowExpanded != '' ? 'z-10' : 'z-[100]',
+                )}
               />
               <div className="z-[90] flex h-full w-full">
                 {APPS.map((app) => {
