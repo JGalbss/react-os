@@ -50,9 +50,9 @@ export default function Home() {
 
           <div className={clsx('z-10 h-full bg-black/50', false ? 'hidden' : 'block')}>
             <div className="relative flex h-screen w-full flex-col items-start justify-center bg-[#4258C6]">
-              <Nav classNames="z-50 " />
-              <Dock apps={APPS} classNames="absolute bottom-[150px] z-50" />
-              <div className="z-[100] flex h-full w-full">
+              <Nav classNames="z-50" />
+              <Dock apps={APPS} classNames="absolute bottom-[150px] z-[100]" />
+              <div className="z-[90] flex h-full w-full">
                 {APPS.map((app) => {
                   return <app.window classNames={clsx('z-50')} />;
                 })}

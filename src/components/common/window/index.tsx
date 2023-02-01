@@ -28,12 +28,12 @@ const Window: FC<WindowProps> = ({
   /* States */
   const [windowHeight, setWindowHeight] = useState(0);
   const [windowWidth, setWindowWidth] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const updateWindowSize = () => {
       setWindowHeight(window.innerHeight - COMPUTER_FRAME_SIZE * 2);
       setWindowWidth(window.innerWidth - COMPUTER_FRAME_SIZE * 2);
-      console.log(windowWidth, windowHeight);
     };
 
     window.addEventListener('resize', updateWindowSize);
@@ -41,6 +41,8 @@ const Window: FC<WindowProps> = ({
 
     return () => {
       window.removeEventListener('resize', updateWindowSize);
+      console.log(windowWidth, windowHeight);
+      setIsLoaded(true);
     };
   }, []);
 
@@ -87,6 +89,10 @@ const Window: FC<WindowProps> = ({
     },
   ];
 
+  if (!isLoaded) {
+    return <div />;
+  }
+
   return (
     <Rnd
       className={clsx(
@@ -96,8 +102,8 @@ const Window: FC<WindowProps> = ({
         isExpanded && 'z-[100]',
       )}
       default={{
-        x: 0,
-        y: 0,
+        x: windowWidth / 2 - 250,
+        y: windowHeight / 2 - 300,
         width: 500,
         height: 500,
       }}
