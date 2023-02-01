@@ -1,3 +1,4 @@
+import type { Dispatch, SetStateAction } from 'react';
 import { FC, useState } from 'react';
 import clsx from 'clsx';
 import { App } from '@/components/apps';
@@ -10,10 +11,12 @@ export type AppNames = 'Profile' | 'Music' | 'Mint' | undefined;
 type DockProps = {
   classNames?: string;
   apps: App[];
+  windowSelected: string;
+  setWindowSelected: Dispatch<SetStateAction<string | undefined>>;
 };
 
 /* Component */
-const Dock: FC<DockProps> = ({ classNames, apps }) => {
+const Dock: FC<DockProps> = ({ classNames, apps, windowSelected, setWindowSelected }) => {
   /* States */
   const [appHovered, setAppHovered] = useState<string | undefined>(undefined);
 
@@ -38,7 +41,12 @@ const Dock: FC<DockProps> = ({ classNames, apps }) => {
                     !isHovered && !isUndefined && 'blur-[1px] transition duration-300 ease-in-out',
                   )}
                 >
-                  {<app.app />}
+                  {
+                    <app.app
+                      windowSelected={windowSelected}
+                      setWindowSelected={setWindowSelected}
+                    />
+                  }
                 </div>
               </Tooltip>
             );

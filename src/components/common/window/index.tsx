@@ -1,3 +1,4 @@
+import type { Dispatch, SetStateAction } from 'react';
 import { FC, ReactNode, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { Rnd } from 'react-rnd';
@@ -11,8 +12,10 @@ type WindowProps = {
   isExpanded: boolean;
   setIsClosed: (value: boolean) => void;
   setIsExpanded: (value: boolean) => void;
+  windowSelected: string | undefined;
+  setWindowSelected: Dispatch<SetStateAction<string | undefined>>;
   children?: ReactNode;
-  name?: string;
+  name: string;
 };
 
 /* Component */
@@ -22,6 +25,8 @@ const Window: FC<WindowProps> = ({
   isExpanded,
   setIsClosed,
   setIsExpanded,
+  windowSelected,
+  setWindowSelected,
   children,
   name,
 }) => {
@@ -100,6 +105,7 @@ const Window: FC<WindowProps> = ({
         'min-h-[200px] min-w-[200px]',
         isClosed ? 'invisible' : 'visible',
         isExpanded && 'z-[100]',
+        windowSelected === name ? 'z-[100]' : 'z-[80]',
       )}
       default={{
         x: windowWidth / 2 - 250,
@@ -119,6 +125,7 @@ const Window: FC<WindowProps> = ({
       bounds="parent"
       disableDragging={isExpanded}
       disableResizing={isExpanded}
+      onClick={() => setWindowSelected(name)}
     >
       <div className="relative h-full w-full overflow-hidden rounded-xl bg-gray-200">
         <div className="flex h-[40px] w-full items-center justify-start space-x-3 bg-[#83adea] p-3">

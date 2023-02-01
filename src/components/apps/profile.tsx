@@ -37,7 +37,11 @@ const ProfileApp: FC<AppComponentProps> = () => {
   );
 };
 
-const ProfileWindow: FC<AppComponentProps> = ({ classNames }) => {
+const ProfileWindow: FC<AppComponentProps> = ({
+  classNames,
+  windowSelected,
+  setWindowSelected,
+}) => {
   const [isClosed, setIsClosed] = useRecoilState(isProfileClosed);
   const [isExpanded, setIsExpanded] = useRecoilState(isProfileExpanded);
   return (
@@ -48,6 +52,8 @@ const ProfileWindow: FC<AppComponentProps> = ({ classNames }) => {
       isExpanded={isExpanded}
       classNames={classNames}
       name={name}
+      windowSelected={windowSelected}
+      setWindowSelected={setWindowSelected}
     >
       <ProfilePage />
     </Window>

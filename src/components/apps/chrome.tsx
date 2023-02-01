@@ -37,12 +37,14 @@ const ChromeApp: FC<AppComponentProps> = () => {
   );
 };
 
-const ChromeWindow: FC<AppComponentProps> = ({ classNames }) => {
+const ChromeWindow: FC<AppComponentProps> = ({ classNames, windowSelected, setWindowSelected }) => {
   const [isClosed, setIsClosed] = useRecoilState(isChromeClosed);
   const [isExpanded, setIsExpanded] = useRecoilState(isChromeExpanded);
   return (
     <Window
       isClosed={isClosed}
+      setWindowSelected={setWindowSelected}
+      windowSelected={windowSelected}
       setIsClosed={setIsClosed}
       setIsExpanded={setIsExpanded}
       isExpanded={isExpanded}
