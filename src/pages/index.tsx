@@ -53,7 +53,7 @@ export default function Home() {
               <Nav classNames="z-50 absolute top-0" />
               <Dock apps={APPS} classNames="absolute bottom-[150px] z-50" />
               {APPS.map((app) => {
-                return <app.window classNames="z-[100]" />;
+                return <app.window classNames={clsx('z-50')} />;
               })}
 
               <div className="absolute bottom-0 z-10">

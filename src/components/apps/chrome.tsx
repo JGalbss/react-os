@@ -7,7 +7,7 @@ import Icon from '../common/icons';
 import Window from '../common/window';
 
 /* Constants */
-const colorClassnames = 'bg-red-500 hover:bg-red-600';
+const colorClassnames = 'bg-white hover:bg-gray-300';
 const name = 'Chrome';
 
 /* States */
@@ -28,7 +28,7 @@ const ChromeApp: FC<AppComponentProps> = () => {
 
   return (
     <App
-      icon={<Icon.Profile width={40} height={40} />}
+      icon={<Icon.Chrome width={40} height={40} />}
       colorClassnames={colorClassnames}
       name={name as AppNames}
       onClick={() => setIsClosed(false)}
