@@ -24,7 +24,6 @@ export const windowExpandedAtom = atom({
 export default function Home() {
   const { progress } = useNProgress({
     isAnimating: true,
-
     incrementDuration: 1,
   });
 
