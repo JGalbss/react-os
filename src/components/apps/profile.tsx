@@ -25,8 +25,6 @@ const ProfileApp: FC<AppComponentProps> = () => {
       icon={<Icon.Profile width={40} height={40} />}
       colorClassnames={colorClassnames}
       name={name}
-      onClick={() => setIsClosed(false)}
-      isClosed={isClosed}
     />
   );
 };
@@ -40,8 +38,6 @@ const ProfileWindow: FC<AppComponentProps> = ({
 
   return (
     <Window
-      isClosed={isClosed}
-      setIsClosed={setIsClosed}
       classNames={classNames}
       name={name}
       windowSelected={windowSelected}

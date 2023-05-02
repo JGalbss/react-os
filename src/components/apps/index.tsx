@@ -15,6 +15,13 @@ export type AppComponentProps = {
   setWindowSelected: Dispatch<SetStateAction<string | undefined>>;
 };
 
-const APPS: App[] = [Profile as App, Chrome as App];
+const APPS: App[] = [
+  Profile as App,
+  Chrome as App,
+  Profile as App,
+  Chrome as App,
+  Profile as App,
+  Chrome as App,
+];
 
 export default APPS;

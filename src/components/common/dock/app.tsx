@@ -1,32 +1,50 @@
-import { FC } from 'react';
+import { type FC, useMemo } from 'react';
 import clsx from 'clsx';
+import { useRecoilState } from 'recoil';
+import { openApps } from 'src/lib/atoms/apps';
 import type { AppNames } from '.';
 
 /* Props */
 export type AppProps = {
   name: AppNames;
-  onClick: () => void;
   icon: any;
   colorClassnames: string;
-  isClosed: boolean;
 };
 
 /* Component */
-const App: FC<AppProps> = ({ name, onClick, icon, colorClassnames, isClosed }) => {
+const App: FC<AppProps> = ({ name, icon, colorClassnames }) => {
+  /* Recoil States */
+  const [openAppsState, setOpenAppsState] = useRecoilState(openApps);
+
+  /* Memoized States */
+  const isClosed = useMemo(() => {
+    return !openAppsState.includes(name);
+  }, [openAppsState]);
+
+  const areAppsExpanded = useMemo(() => {
+    return openAppsState.length > 0;
+  }, [openAppsState]);
+
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex aspect-square flex-col items-center justify-center">
       <div
         key={name}
         className={clsx(
-          'relative flex w-fit transform transform items-center justify-center rounded-lg p-3',
-          'transition duration-200 ease-in-out hover:-translate-y-5',
+          'relative flex aspect-square h-full w-full grow items-center justify-center rounded-lg p-3',
+          'transition duration-200 ease-in-out',
           colorClassnames,
         )}
-        onClick={onClick}
+        onClick={() => setOpenAppsState([...openAppsState, name])}
       >
         {icon}
       </div>
-      <div className={clsx('mt-2 flex h-2 w-2 rounded-full bg-white', isClosed && 'invisible')} />
+      <div
+        className={clsx(
+          'mt-2 flex h-2 w-2 rounded-full bg-white',
+          isClosed && areAppsExpanded && 'invisible',
+          isClosed && !areAppsExpanded && 'hidden',
+        )}
+      />
     </div>
   );
 };

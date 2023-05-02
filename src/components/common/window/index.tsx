@@ -3,14 +3,14 @@ import { FC, ReactNode, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { Rnd } from 'react-rnd';
 import { useRecoilState } from 'recoil';
+import { openApps } from 'src/lib/atoms/apps';
 import { COMPUTER_FRAME_SIZE, windowExpandedAtom } from 'src/pages';
+import { AppNames } from '../dock';
 import Icon from '../icons';
 
 /* Props */
 type WindowProps = {
   classNames?: string;
-  isClosed: boolean;
-  setIsClosed: (value: boolean) => void;
   windowSelected: string | undefined;
   setWindowSelected: Dispatch<SetStateAction<string | undefined>>;
   children?: ReactNode;
@@ -20,8 +20,6 @@ type WindowProps = {
 /* Component */
 const Window: FC<WindowProps> = ({
   classNames,
-  isClosed,
-  setIsClosed,
   windowSelected,
   setWindowSelected,
   children,
@@ -33,6 +31,9 @@ const Window: FC<WindowProps> = ({
   const [isLoaded, setIsLoaded] = useState(false);
   const [windowExpanded, setWindowExpanded] = useRecoilState(windowExpandedAtom);
   const [isDragging, setIsDragging] = useState(false);
+
+  /* Recoil States */
+  const [openAppsState, setOpenAppsState] = useRecoilState(openApps);
 
   useEffect(() => {
     const updateWindowSize = () => {
@@ -53,13 +54,19 @@ const Window: FC<WindowProps> = ({
   /* Constants */
   const isExpanded = windowExpanded === name;
   const isWindowSelected = windowSelected === name;
+  const isClosed = !openAppsState.includes(name as AppNames);
 
   const WINDOW_ACTIONS = [
     {
       name: 'close',
       icon: (
         <div
-          onClick={() => setIsClosed(true)}
+          onClick={() =>
+            setOpenAppsState((prev: AppNames[]) => {
+              // Remove the app name if it's in the openAppsState
+              return [...prev].filter((app) => app !== name);
+            })
+          }
           className="flex cursor-pointer items-center justify-center rounded-full bg-red-500 p-0.5"
         >
           <div className="h-full w-full opacity-0 hover:opacity-100">
