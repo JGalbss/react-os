@@ -120,23 +120,9 @@ const Window: FC<WindowProps> = ({
         isExpanded && 'z-[100] transition-all duration-300 ease-in-out',
         isWindowSelected ? 'z-[100]' : 'z-[80]',
       )}
-      default={{
-        x: windowWidth / 2 - 250,
-        y: windowHeight / 2 - 300,
-        width: 500,
-        height: 500,
-      }}
       onDrag={() => handleDrag()}
       onDragStop={() => setIsDragging(false)}
       position={isExpanded ? { x: 0, y: 0 } : undefined}
-      size={
-        isExpanded
-          ? {
-              width: windowWidth,
-              height: windowHeight,
-            }
-          : undefined
-      }
       bounds="parent"
       disableDragging={isExpanded}
       disableResizing={isExpanded}
