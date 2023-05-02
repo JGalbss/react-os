@@ -16,7 +16,7 @@ const isProfileClosed = atom({
   default: false, // default value (aka initial value)
 });
 
-/* Component */
+/* Components */
 const ProfileApp: FC<AppComponentProps> = () => {
   const [isClosed, setIsClosed] = useRecoilState(isProfileClosed);
 

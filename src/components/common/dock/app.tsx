@@ -30,7 +30,7 @@ const App: FC<AppProps> = ({ name, icon, colorClassnames }) => {
       <div
         key={name}
         className={clsx(
-          'relative flex aspect-square h-full w-full grow items-center justify-center rounded-lg p-3',
+          'relative flex aspect-square h-full w-full items-center justify-center rounded-lg p-3',
           'transition duration-200 ease-in-out',
           colorClassnames,
         )}

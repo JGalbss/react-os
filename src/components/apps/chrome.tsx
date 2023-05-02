@@ -9,7 +9,7 @@ import Window from '../common/window';
 const colorClassnames = 'bg-white hover:bg-gray-300';
 const name = 'Chrome';
 
-/* Component */
+/* Components */
 const ChromeApp: FC<AppComponentProps> = () => {
   return (
     <App

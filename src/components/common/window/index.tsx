@@ -46,7 +46,6 @@ const Window: FC<WindowProps> = ({
 
     return () => {
       window.removeEventListener('resize', updateWindowSize);
-      console.log(windowWidth, windowHeight);
       setIsLoaded(true);
     };
   }, []);
@@ -116,7 +115,7 @@ const Window: FC<WindowProps> = ({
     <Rnd
       className={clsx(
         classNames,
-        'min-h-[200px] min-w-[200px]',
+        'h-[500px] min-h-[200px] min-w-[200px]',
         isClosed ? 'invisible' : 'visible',
         isExpanded && 'z-[100] transition-all duration-300 ease-in-out',
         isWindowSelected ? 'z-[100]' : 'z-[80]',
