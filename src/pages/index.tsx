@@ -67,17 +67,17 @@ export default function Home() {
                   windowExpanded != '' ? 'z-10' : 'z-[100]',
                 )}
               />
-
-              {APPS.map((app) => {
-                return (
-                  <app.window
-                    windowSelected={windowSelected}
-                    setWindowSelected={setWindowSelected}
-                    classNames={clsx('z-50')}
-                  />
-                );
-              })}
-
+              <div className="z-[90] flex h-full w-full">
+                {APPS.map((app) => {
+                  return (
+                    <app.window
+                      windowSelected={windowSelected}
+                      setWindowSelected={setWindowSelected}
+                      classNames={clsx('z-50')}
+                    />
+                  );
+                })}
+              </div>
               <div className="absolute bottom-0 z-10">
                 <Image alt="Background Image" src={BackgroundGif} />
               </div>

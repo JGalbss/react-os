@@ -115,7 +115,7 @@ const Window: FC<WindowProps> = ({
     <Rnd
       className={clsx(
         classNames,
-        'w-[500px] min-w-[200px]',
+        'h-[500px] w-[500px] min-w-[200px]',
         isClosed ? 'invisible' : 'visible',
         isExpanded && 'z-[100] transition-all duration-300 ease-in-out',
         isWindowSelected ? 'z-[100]' : 'z-[80]',
