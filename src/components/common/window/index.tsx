@@ -115,7 +115,7 @@ const Window: FC<WindowProps> = ({
     <Rnd
       className={clsx(
         classNames,
-        'h-[500px] min-h-[200px] w-[500px] min-w-[200px]',
+        'w-[500px] min-w-[200px]',
         isClosed ? 'invisible' : 'visible',
         isExpanded && 'z-[100] transition-all duration-300 ease-in-out',
         isWindowSelected ? 'z-[100]' : 'z-[80]',
@@ -129,6 +129,14 @@ const Window: FC<WindowProps> = ({
       onDrag={() => handleDrag()}
       onDragStop={() => setIsDragging(false)}
       position={isExpanded ? { x: 0, y: 0 } : undefined}
+      size={
+        isExpanded
+          ? {
+              width: windowWidth,
+              height: windowHeight,
+            }
+          : undefined
+      }
       bounds="parent"
       disableDragging={isExpanded}
       disableResizing={isExpanded}
